@@ -1,13 +1,696 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, html, #root {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.font-sans {
+  font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.harmony-gradient {
+  background: linear-gradient(90deg, #fac7a7 0%, #ff8b8b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-gradient {
+  background: linear-gradient(90deg, rgba(255, 140, 0, 1) 0%, rgba(255, 203, 112, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.website-gradient {
+  background: linear-gradient(90deg, rgba(0, 255, 255, 1) 0%, rgba(0, 123, 255, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-off-white {
+  color: #d1d5db; /* Tailwind's 'coolGray-200' color */
+}
+
+.text-gray-600 {
+  color: #4c4c4c; /* The color for "Welcome to" */
+}
+
+.border-launch-green {
+  border-color: #02d28f; /* Border color for Launch button */
+}
+
+.text-launch-green {
+  color: #02d28f; /* Text color for Launch button */
+}
+
+.hover\:bg-launch-green:hover {
+  background-color: #02d28f; /* Hover background color for Launch button */
+}
+
+.button {
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.05); /* Light shadow all around */
+}
+
+.button:hover {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2); /* Light shadow all around */
+}
+
+.button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.15); /* Light shadow all around */
+}
+
+/* Generate Button Styles */
+.generate-button {
+  background: linear-gradient(90deg, rgba(250, 199, 167, 0.8) 0%, rgba(255, 139, 139, 0.8) 100%);
+  color: #2c2c2c;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.1); /* Light shadow all around */
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out, background 0.3s ease-in-out;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: 'SF Pro Display', sans-serif;
+  font-weight: bolder;
+}
+
+/* Hover effect for Generate button */
+.generate-button:hover {
+  background: linear-gradient(90deg, #fac7a7 0%, #ff8b8b 100%);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2); /* Light shadow all around */
+}
+
+/* Click animation effect for Generate button */
+.generate-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.15); /* Light shadow all around */
+}
+
+/* Back Button Styles */
+.back-button {
+  background-color: #04384a;
+  color: #d1d5db; /* Match the text color to the sidebar text color */
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  box-shadow: 0 0 4px #ffffff0d; /* Light shadow all around */
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+  border: 1px solid #1c1c1c; /* Add black-gray border with less opacity */
+}
+
+.back-button:hover {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1); /* Light shadow all around */
+  color: #ffffff;
+}
+
+.back-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.15); /* Light shadow all around */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content button {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown-content button:hover {
+  background-color: #f1f1f1;
+}
+
+.sidebar {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #07252d !important; /* Force sidebar background color */
+  border-right: 1px solid #6c7d84; /* Light border color */
+  display: flex;
+  flex-direction: column;
+  width: 200px; /* Fixed width for the sidebar */
+  overflow-y: auto;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 900;
+  background-color: #07252d; /* Matching the sidebar background color */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 50px; /* Adjust sidebar width */
+  }
+  .center-container, .svg-center {
+    margin-left: 50px; /* Adjust margin for the reduced sidebar width */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: space-between; /* Adjust navbar alignment */
+  }
+  .sidebar {
+    width: 40px; /* Further reduce sidebar width */
+  }
+  .center-container, .svg-center {
+    margin-left: 40px; /* Adjust margin for the reduced sidebar width */
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 8px; /* Reduce navbar padding */
+  }
+  .sidebar {
+    width: 30px; /* Further reduce sidebar width */
+  }
+  .center-container, .svg-center {
+    margin-left: 30px; /* Adjust margin for the reduced sidebar width */
+  }
+  .harmony-text-3d {
+    width: 80%; /* Reduce the size of the 3D text */
+    height: auto; /* Maintain aspect ratio */
+  }
+  .harmony-container {
+    flex-direction: column; /* Stack elements vertically */
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar {
+    padding: 0 4px; /* Further reduce navbar padding */
+  }
+  .sidebar {
+    width: 25px; /* Further reduce sidebar width */
+  }
+  .center-container, .svg-center {
+    margin-left: 25px; /* Adjust margin for the reduced sidebar width */
+  }
+
+  /* Section Flex Adjustments */
+  .flex-row {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+  }
+  .svg-center {
+    flex-direction: column; /* Ensure SVG center elements stack correctly */
+  }
+  .w-full {
+    width: 100%;
+  }
+  .h-full {
+    height: auto;
+  }
+}
+
+/* Media Query for Screens Less Than 120px */
+@media (max-width: 120px) {
+  .sidebar {
+    width: 20px; /* Further reduce sidebar width */
+  }
+  .center-container, .svg-center {
+    margin-left: 20px; /* Adjust margin for the reduced sidebar width */
+  }
+  .navbar {
+    padding: 0 2px; /* Further reduce navbar padding */
+  }
+  .svg-center {
+    flex-direction: column; /* Ensure SVG center elements stack correctly */
+  }
+  .w-full {
+    width: 100%;
+  }
+  .h-full {
+    height: auto;
+  }
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('./fonts/SF-Pro-Display-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('./fonts/SF-Pro-Display-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  font-family: 'SF Pro Display', sans-serif;
+}
+
+.color-button {
+  position: relative; /* Ensure the button itself is the positioning context */
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.1); /* Increase alpha for more intensity */
+  width: 40px; /* Adjust the size as needed */
+  height: 40px; /* Adjust the size as needed */
+  padding-right: 0;
+  padding-left: 0;
+  border-radius: 50%;
+}
+
+.color-button .lock-icon {
+  position: absolute;
+  top: 50%; /* Center the icon vertically */
+  left: 50%; /* Center the icon horizontally */
+  transform: translate(-50%, -50%); /* Adjust for precise centering */
+}
+
+.color-button:hover {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4); /* Increase alpha for more intensity */
+  transform: scale(1.1);
+}
+
+.color-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.3); /* Increase alpha for more intensity */
+}
+
+.color-button.selected {
+  border: 2px solid #4A90E2; /* Highlight color when selected */
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4); /* Increase alpha for more intensity */
+}
+
+.menu-button {
+  font-family: 'SF Pro Display', sans-serif;
+  font-weight: bold;
+}
+
+.sidebar-separator {
+  border-bottom: 1px solid #6c7d84; /* Updated border color for the separator */
+  margin: 16px 0; /* Add vertical spacing around the separator */
+}
+
+.sidebar-header {
+  height: 4rem; /* Adjust this value to match the navbar height */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  border-bottom: 1px solid #6c7d84; /* Updated border color */
+}
+
+.sidebar-eye-icon {
+  position: absolute;
+  left: 79%;
+}
+
+.icon-opacity {
+  opacity: 0.6;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.icon-opacity:hover {
+  opacity: 1;
+}
+
+.transition-max-height {
+  transition: max-height 0.5s ease-in-out;
+}
+
+.animate-dropdown .animate-fade-in {
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-dropdown .animate-fade-out {
+  animation: fadeOut 0.3s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* New Styles */
+.bg-off-white {
+  background: linear-gradient(to right, #f5f5f5, #eaeaea); /* Off-white gradient background */
+}
+
+.section {
+  width: 100%;
+  height: auto; /* Adjust the height to cover from top bar to the separator */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 0.4rem; /* Match the highlighted section padding */
+  padding-top: 0.4rem; /* Match the highlighted section padding */
+}
+
+.highlighted-section {
+  width: 100%;
+  height: auto; /* Adjust the height to cover from top bar to the separator */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 0.4rem; /* Match the section padding */
+  padding-top: 0.4rem; /* Match the section padding */
+  background: linear-gradient(to right, #07252d, #04384a); /* Off-white gradient for highlighted section */
+  border-radius: 0.5rem;
+  box-shadow: 6px 0px 6px -2px rgba(0, 0, 0, 0.1), 6px 3px 6px -3px rgba(171, 171, 171, 0.1), 6px -3px 6px -3px rgba(112, 112, 112, 0.1); /* Right side shadow effect */
+}
+
+.selected {
+  font-weight: bold;
+}
+
+/* Custom scrollbar styles */
+.sidebar {
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #6c7d84 #07252d; /* Text color for scrollbar thumb and dark teal for track */
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #07252d; /* Dark teal color for scrollbar track */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #d1d5db; /* Text color for scrollbar thumb */
+  border-radius: 10px;
+  border: 3px solid #07252d; /* Match the scrollbar thumb border with the sidebar background */
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #e0e0e0; /* Slightly lighter off-white for scrollbar thumb on hover */
+}
+
+/* Scrollable content styles */
+.scrollable-content {
+  height: calc(100% - 4rem); /* Adjust this value if your top bar height is different */
+  overflow-y: auto;
+}
+
+@font-face {
+  font-family: 'Neon zone';
+  src: url('./fonts/Neon\ Zone.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@keyframes animate {
+  0%, 100% {
+    color: #fff;
+    text-shadow: 0 0 10px #03bcf4,
+       0 0 20px #03bcf4,
+       0 0 40px #03bcf4,
+       0 0 80px #03bcf4,
+       0 0 160px #03bcf4;
+  }
+}
+
+.neon-text {
+  font-family: 'Neon zone', sans-serif; /* Make sure this font is correctly imported */
+  animation: animate 5s linear infinite;
+  opacity: 98%;
+}
+
+.sidebar {
+  background-color: #07252d; /* Ensure the sidebar background color is set */
+}
+
+.sidebar * {
+  color: #d1d5db !important; /* Set text and icon color to off-white */
+}
+
+.sidebar button, .sidebar span, .sidebar svg {
+  color: #d1d5db !important; /* Apply color to buttons, spans, and icons */
+}
+
+.sidebar .section button {
+  color: #d1d5db !important; /* Apply color to section buttons */
+}
+
+.sidebar .section span {
+  color: #d1d5db !important; /* Apply color to section spans */
+}
+
+.sidebar .section svg {
+  color: #d1d5db !important; /* Apply color to section icons */
+}
+
+.sidebar .highlighted-section {
+  color: #d1d5db !important; /* Ensure highlighted sections maintain color */
+}
+
+.sidebar .highlighted-section button {
+  color: #d1d5db !important; /* Ensure highlighted section buttons maintain color */
+}
+
+.sidebar .highlighted-section span {
+  color: #d1d5db !important; /* Ensure highlighted section spans maintain color */
+}
+
+.sidebar .highlighted-section svg {
+  color: #d1d5db !important; /* Ensure highlighted section icons maintain color */
+}
+
+.sidebar-separator {
+  border-bottom: 1px solid #6c7d84; /* Update border color for the separator */
+  margin: 16px 0; /* Add vertical spacing around the separator */
+}
+
+.sidebar-header {
+  height: 4rem; /* Adjust this value to match the navbar height */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  border-bottom: 1px solid #6c7d84; /* Update border color */
+}
+
+/* Adjust alignment when sidebar is locked */
+.sidebar-locked .center-container {
+  margin-left: 16rem; /* Adjust based on the width of your sidebar */
+}
+
+/* Default center alignment */
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust as needed */
+  transition: margin-left 0.3s ease-in-out; /* Smooth transition for margin change */
+}
+
+/* Adjust alignment when sidebar is not locked */
+.center-container {
+  margin-left: 0;
+}
+
+/* Other styles as needed */
+
+/* Default center alignment for the new SVG */
+.svg-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust as needed */
+  transition: margin-left 0.3s ease-in-out; /* Smooth transition for margin change */
+  margin-left: 0; /* Default state */
+}
+
+/* Adjust alignment when sidebar is locked */
+.sidebar-locked .svg-center {
+  margin-left: 16rem; /* Adjust based on the width of your sidebar */
+}
+
+.new-wave-svg-container {
+  position: relative;
+  width: 100%; /* Ensure the container takes up the full width */
+  background-color: inherit; /* Ensure it inherits the background color */
+  margin-top: -200px; /* Adjust this value to move the NewWaveSVG up or down */
+  display: flex; /* Use flex to ensure SVG stretches */
+  justify-content: center; /* Center content if needed */
+}
+
+.new-wave-svg-container svg {
+  width: 100%; /* Ensure SVG takes up the full width of the container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* styles.css */
+.YourSVG {
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
+  /* Add any other styles you want for the SVG container */
+}
+
+.BrandSVG {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Adjust as needed */
+  width: 100%;
+  transition: margin-left 0.3s ease-in-out; /* Smooth transition for margin change */
+  margin-left: 0; /* Default state */
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
+}
+
+.harmony-text-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.harmony-text-3d {
+  width: 600px; /* Adjusted width */
+  height: 400px; /* Adjusted height */
+  position: relative;
+}
+
+.harmony-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.harmony-canvas {
+  width: 100%;
+  height: 100%;
+  max-width: 800px;  /* Set a maximum width for the canvas */
+  max-height: 600px; /* Set a maximum height for the canvas */
+}
+
+.custom-shadow {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* Reduced the blur radius and opacity */
+  border-radius: 25px; /* Ensure the border-radius matches the parent container */
+}
+
+.vertical-spacing {
+  margin-bottom: 5px; /* Adjust the value as needed */
+}
+
+.icon-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  cursor: pointer;
+  margin: 4px 0;
+  padding: 6px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.icon:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.color-container:hover .icon-container {
+  display: flex;
+}
+
+.copy-success {
+  position: fixed;
+  top: 100px;
+  left: 59%;
+  transform: translateX(-50%);
+  background-color: #07252d;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: opacity 0.3s;
+  max-width: 13%;
+}
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+}
+
+.svg-drop-shadow {
+  filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.4));
+}
+
+@media (max-width: 70px) {
+  .navbar {
+    padding: 0 4px; /* Further reduce navbar padding */
+  }
+  .sidebar {
+    width: 25px; /* Further reduce sidebar width */
+  }
+  .center-container, .svg-center {
+    margin-left: 25px; /* Adjust margin for the reduced sidebar width */
+  }
+
+  /* Section Flex Adjustments */
+  .flex-row {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+  }
+  .svg-center {
+    flex-direction: column; /* Ensure SVG center elements stack correctly */
+  }
+  .w-full {
+    width: 100%;
+  }
+  .h-full {
+    height: auto;
+  }
 }

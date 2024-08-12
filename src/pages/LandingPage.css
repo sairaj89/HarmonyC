@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.font-sans {
+  font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.harmony-gradient {
+  background: linear-gradient(90deg, #fac7a7 0%, #ff8b8b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-gradient {
+  background: linear-gradient(90deg, rgba(255, 140, 0, 1) 0%, rgba(255, 203, 112, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.website-gradient {
+  background: linear-gradient(90deg, rgba(0, 255, 255, 1) 0%, rgba(0, 123, 255, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-off-white {
+  color: #d1d5db; /* Tailwind's 'coolGray-200' color */
+}
+
+.text-gray-600 {
+  color: #4c4c4c; /* The color for "Welcome to" */
+}
+
+.border-launch-green {
+  border-color: #02d28f; /* Border color for Launch button */
+}
+
+.text-launch-green {
+  color: #02d28f; /* Text color for Launch button */
+}
+
+.hover\:bg-launch-green:hover {
+  background-color: #02d28f; /* Hover background color for Launch button */
+}
+
+.button {
+  border-radius: 4px; /* Adjust the value to control the roundness */
+}
+
+
+@layer components {
+  .harmony-gradient {
+    background: linear-gradient(to right, #FFB6C1, #FF69B4, #8B008B);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
