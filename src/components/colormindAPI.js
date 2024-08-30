@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://server-harmony.vercel.app/'; // Adjust if your server runs on a different URL or port
+const BASE_URL = 'https://server-harmony.vercel.app'; // Adjust if your server runs on a different URL or port
 
 export const getColors = async (mode) => {
   try {
