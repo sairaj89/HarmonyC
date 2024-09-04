@@ -306,7 +306,7 @@ const ThreeColorsPage = () => {
           className="h-screen flex items-center justify-center svg-center"
           style={{ background: `linear-gradient(135deg, ${baseColor}, ${diamondColor}, ${monyColor})` }}
         >
-          <Harmony3DText baseColor={additionalColors[3]} diamondColor={additionalColors[0]} harColor={additionalColors[0]} monyColor={additionalColors[1]} />
+          <Harmony3DText baseColor={baseColor} diamondColor={diamondColor} harColor={harColor} monyColor={monyColor} />
 
         </section>
         <section
