@@ -307,12 +307,11 @@ const ThreeColorsPage = () => {
           style={{ background: `linear-gradient(135deg, ${baseColor}, ${diamondColor}, ${monyColor})` }}
         >
           <Harmony3DText
-            baseColor={additionalColors[3]}  // Applying the rightmost color to the H
-            diamondColor={additionalColors[1]}  // Mapping the second icon from the right to the rightmost section
-            harColor={additionalColors[0]}
-            monyColor={additionalColors[2]}
+            baseColor={additionalColors[2]}  // Set the rightmost color icon to the H
+            diamondColor={additionalColors[0]}
+            harColor={additionalColors[1]}
+            monyColor={additionalColors[3]}
           />
-
 
 
         </section>
