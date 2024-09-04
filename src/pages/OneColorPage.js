@@ -270,7 +270,8 @@ const OneColorPage = () => {
             background: `linear-gradient(135deg, ${baseColor}, ${diamondColor})`
           }}
         >
-          <Harmony3DText baseColor={baseColor} diamondColor={baseColor} harColor={baseColor} monyColor={diamondColor} />
+          <Harmony3DText baseColor={diamondColor} diamondColor={diamondColor} harColor={diamondColor} monyColor={baseColor} />
+
 
         </section>
         <section
