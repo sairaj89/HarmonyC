@@ -11,6 +11,7 @@ import ntc from 'ntc';
 import { addColorToHistory, getPreviousColors } from '../components/colorHistory';
 import loadingIcon from '../images/sampc.gif';
 import LoadingBar from 'react-top-loading-bar';
+import { getColors } from '../components/colormindAPI'; // Import the colormindAPI function
 
 const rgbArrayToHex = (rgbArray) => {
   const [r, g, b] = rgbArray;
@@ -18,7 +19,7 @@ const rgbArrayToHex = (rgbArray) => {
 };
 
 function isColorDark(color) {
-  if (typeof color !== 'string') return false; // Ensure color is a string
+  if (typeof color !== 'string') return false;
   const hex = color.replace('#', '');
   const r = parseInt(hex.substring(0, 2), 16);
   const g = parseInt(hex.substring(2, 4), 16);
@@ -28,7 +29,7 @@ function isColorDark(color) {
 }
 
 function getColorName(color) {
-  if (typeof color !== 'string') return ''; // Ensure color is a string
+  if (typeof color !== 'string') return '';
   const colorName = ntc.name(color);
   return colorName[1];
 }
@@ -55,27 +56,26 @@ const TwoToneWebsitePage = () => {
   const harPickerRef = useRef(null);
   const monyPickerRef = useRef(null);
 
+  // Updated fetchColors function to use colormindAPI
   const fetchColors = async () => {
     try {
-      setLoading(true);
-      if (loadingBarRef.current) loadingBarRef.current.continuousStart(); // Start the loading bar
-      const response = await fetch('http://localhost:5000/api/colors');
-      const colors = await response.json();
+      loadingBarRef.current.continuousStart(); // Start the loading bar
+      const colors = await getColors('twotonemode'); // Updated to use Colormind API
       const newBaseColor = rgbArrayToHex(colors.mainColor);
       const newAdditionalColors = [
         rgbArrayToHex(colors.secondaryColor),
         rgbArrayToHex(colors.accentColor1),
-        rgbArrayToHex(colors.accentColor2)
+        rgbArrayToHex(colors.accentColor2),
       ];
       setBaseColor(newBaseColor);
       setAdditionalColors(newAdditionalColors);
       setColorHistory([[newBaseColor, ...newAdditionalColors]]);
       setLoading(false);
-      if (loadingBarRef.current) loadingBarRef.current.complete(); // Complete the loading bar
+      loadingBarRef.current.complete(); // Complete the loading bar
     } catch (error) {
       console.error('Error fetching colors:', error);
       setLoading(false);
-      if (loadingBarRef.current) loadingBarRef.current.complete(); // Complete the loading bar even if there's an error
+      loadingBarRef.current.complete(); // Complete the loading bar even if there's an error
     }
   };
 
@@ -138,26 +138,26 @@ const TwoToneWebsitePage = () => {
     }, 2000);
   };
 
+  // Updated onGenerate function to use colormindAPI
   const onGenerate = async () => {
     if (baseLocked && diamondLocked && harLocked && monyLocked) return;
 
-    if (loadingBarRef.current) loadingBarRef.current.continuousStart(); // Start the loading bar
+    loadingBarRef.current.continuousStart(); // Start the loading bar
     try {
-      const response = await fetch('http://localhost:5000/api/colors');
-      const colors = await response.json();
+      const colors = await getColors('twotonemode'); // Updated to use Colormind API
       const newBaseColor = baseLocked ? baseColor : rgbArrayToHex(colors.mainColor);
       const newAdditionalColors = [
         diamondLocked ? additionalColors[0] : rgbArrayToHex(colors.secondaryColor),
         harLocked ? additionalColors[1] : rgbArrayToHex(colors.accentColor1),
-        monyLocked ? additionalColors[2] : rgbArrayToHex(colors.accentColor2)
+        monyLocked ? additionalColors[2] : rgbArrayToHex(colors.accentColor2),
       ];
       setBaseColor(newBaseColor);
       setAdditionalColors(newAdditionalColors);
       setColorHistory(addColorToHistory(colorHistory, [newBaseColor, ...newAdditionalColors]));
-      if (loadingBarRef.current) loadingBarRef.current.complete(); // Complete the loading bar
+      loadingBarRef.current.complete(); // Complete the loading bar
     } catch (error) {
       console.error('Error generating colors:', error);
-      if (loadingBarRef.current) loadingBarRef.current.complete(); // Complete the loading bar even if there's an error
+      loadingBarRef.current.complete();
     }
   };
 
@@ -198,7 +198,7 @@ const TwoToneWebsitePage = () => {
           isBackButtonDisabled={colorHistory.length <= 1}
           loading={loading}
         />
-        <LoadingBar color="#f11946" ref={loadingBarRef} /> {/* Add the loading bar here */}
+        <LoadingBar color="#f11946" ref={loadingBarRef} />
         <div className="flex-grow relative flex items-center justify-center">
           <img src={loadingIcon} alt="Loading..." style={{ width: '265px', height: '265px', marginLeft: '220px' }} />
         </div>
@@ -226,9 +226,9 @@ const TwoToneWebsitePage = () => {
         isBackButtonDisabled={colorHistory.length <= 1}
         loading={loading}
       />
-      <LoadingBar color="#f11946" ref={loadingBarRef} /> {/* Add the loading bar here */}
+      <LoadingBar color="#f11946" ref={loadingBarRef} />
       <div className="flex-grow relative">
-        <section
+      <section
           style={{
             background: baseColor,
             display: 'flex',
