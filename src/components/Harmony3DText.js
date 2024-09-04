@@ -26,12 +26,19 @@ const Model = ({ baseColor, diamondColor, harColor, monyColor }) => {
     };
   }, [initialRotation]);
 
+  // Traverse the OBJ model and assign different colors to parts of the model
   obj.traverse((child) => {
     if (child instanceof THREE.Mesh) {
-      const material = new THREE.MeshBasicMaterial({
-        color: baseColor,
-      });
-      child.material = material;
+      // Check for part names or identifiers to apply the correct colors
+      if (child.name.includes('base')) {
+        child.material = new THREE.MeshBasicMaterial({ color: baseColor });
+      } else if (child.name.includes('diamond')) {
+        child.material = new THREE.MeshBasicMaterial({ color: diamondColor });
+      } else if (child.name.includes('har')) {
+        child.material = new THREE.MeshBasicMaterial({ color: harColor });
+      } else if (child.name.includes('mony')) {
+        child.material = new THREE.MeshBasicMaterial({ color: monyColor });
+      }
     }
   });
 
