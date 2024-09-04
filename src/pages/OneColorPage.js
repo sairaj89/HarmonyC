@@ -4,10 +4,10 @@ import YourSVGOneColor from '../components/YourSVG';
 import NewWaveSVGOneColor from '../components/NewWaveSVG';
 import BrandSVGOneColor from '../components/BrandSVGOneColorPage';
 import Harmony3DText from '../components/Harmony3DText';
-import { getColors } from '../components/colormindAPI'; // Use colormindAPI import
+import { SketchPicker } from 'react-color';
+import { getColors } from '../components/colormindAPI';
 import { addColorToHistory, getPreviousColors } from '../components/colorHistory';
 import LoadingBar from 'react-top-loading-bar';
-import { SketchPicker } from 'react-color';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy, faLock, faLockOpen } from '@fortawesome/free-solid-svg-icons';
 import ntc from 'ntc';
@@ -35,7 +35,7 @@ const rgbArrayToHex = (rgbArray) => {
 const OneColorPage = () => {
   const [baseColor, setBaseColor] = useState('#0000FF');
   const [additionalColors, setAdditionalColors] = useState(['#cccccc']);
-  const [loading, setLoading] = useState(true); // Initial loading state
+  const [loading, setLoading] = useState(true);
   const [isBaseColorLocked, setIsBaseColorLocked] = useState(false);
   const [isAdditionalColorLocked, setIsAdditionalColorLocked] = useState([false]);
   const [colorHistory, setColorHistory] = useState([]);
@@ -49,15 +49,15 @@ const OneColorPage = () => {
 
   const fetchInitialColors = async () => {
     try {
-      setProgress(30); // Start the loading bar
-      const colors = await getColors(); // Use colormindAPI import
+      setProgress(30);
+      const colors = await getColors('one');
       const initialBaseColor = rgbArrayToHex(colors.mainColor);
       const initialAdditionalColors = [rgbArrayToHex(colors.secondaryColor)];
       setBaseColor(initialBaseColor);
       setAdditionalColors(initialAdditionalColors);
       setColorHistory([[initialBaseColor, ...initialAdditionalColors]]);
-      setLoading(false); // Set loading to false after colors are fetched
-      setProgress(100); // Complete the loading bar
+      setLoading(false);
+      setProgress(100);
     } catch (error) {
       console.error('Error fetching initial colors:', error);
     }
@@ -85,12 +85,12 @@ const OneColorPage = () => {
 
   const onGenerate = async () => {
     if (isBaseColorLocked && isAdditionalColorLocked[0]) {
-      return; // Exit the function early if both colors are locked
+      return;
     }
 
     try {
-      setProgress(30); // Start the loading bar
-      const colors = await getColors(); // Use colormindAPI import
+      setProgress(30);
+      const colors = await getColors('one');
       const newBaseColor = isBaseColorLocked ? baseColor : rgbArrayToHex(colors.mainColor);
       const newAdditionalColors = additionalColors.map((color, index) =>
         isAdditionalColorLocked[index] ? color : rgbArrayToHex(colors.secondaryColor)
@@ -98,7 +98,7 @@ const OneColorPage = () => {
       setBaseColor(newBaseColor);
       setAdditionalColors(newAdditionalColors);
       setColorHistory(addColorToHistory(colorHistory, [newBaseColor, ...newAdditionalColors]));
-      setProgress(100); // Complete the loading bar
+      setProgress(100);
     } catch (error) {
       console.error('Error generating colors:', error);
     }
@@ -152,7 +152,7 @@ const OneColorPage = () => {
           <img src={loadingIcon} alt="Loading..." style={{ width: '265px', height: '265px', marginLeft: '220px' }} />
         </div>
       </div>
-    ); // Render loading icon while loading initial colors
+    );
   }
 
   const diamondColor = additionalColors[0];
@@ -200,13 +200,13 @@ const OneColorPage = () => {
                 333.989990 247.499481,339.211975 C236.374817,345.337585 225.338013,351.626801 214.346329,357.988861 C200.018585,366.281921 186.072556,
                 365.162720 172.213364,356.813873 C163.968307,351.846985 155.593979,347.094696 146.946381,342.088318 Z" />
               </svg>
-              <div style={{ width: '10px' }}></div> {/* Adjust this value for spacing */}
+              <div style={{ width: '10px' }}></div>
               <svg
                 width="180"
                 height="80"
                 viewBox="0 0 252.78 56.1"
                 xmlns="http://www.w3.org/2000/svg"
-                style={{ transform: 'translateY(4.8px)' }} // Adjust this value to move the text up or down
+                style={{ transform: 'translateY(4.8px)' }}
               >
                 <g
                   id="svgGroup"
@@ -220,8 +220,7 @@ const OneColorPage = () => {
                     style={{ fill: diamondColor }}
                   />
                   <path
-                    d="M 63.12 25.08 L 63.12 22.8 A 9.676 9.676 0 0 0 62.841 20.41 A 6.745 6.745 0 0 0 60.96 17.13 Q 58.8 15.06 54.84 15.06 Q 52.26 15.06 49.89 15.99 Q 47.594 16.891 45.045 18.552 A 37.522 37.522 0 0 0 44.88 18.66 L 42.96 14.94 A 27.932 27.932 0 0 1 46.403 12.91 A 22.732 22.732 0 0 1 49.08 11.79 Q 52.14 10.74 55.44 10.74 Q 61.259 10.74 64.708 13.872 A 11.139 11.139 0 0 1 64.92 14.07 Q 68.4 17.4 68.4 23.34 L 68.4 36.6 Q 68.4 37.56 68.79 38.01 A 1.271 1.271 0 0 0 69.243 38.336 Q 69.584 38.487 70.08 38.52 L 70.08 42.6 A 38.81 38.81 0 0 1 69.525 42.682 Q 69.086 42.743 68.73 42.78 Q 68.163 42.84 67.804 42.84 A 2.724 2.724 0 0 1 67.8 42.84 A 5.389 5.389 0 0 1 66.728 42.74 Q 66.105 42.614 65.628 42.326 
-  A 2.763 2.763 0 0 1 65.01 41.82 A 4.641 4.641 0 0 1 64.388 40.971 A 3.378 3.378 0 0 1 63.96 39.66 L 63.84 37.68 A 13.149 13.149 0 0 1 59.207 41.431 A 15.69 15.69 0 0 1 58.5 41.76 A 17.37 17.37 0 0 1 54.5 42.98 A 14.931 14.931 0 0 1 51.96 43.2 A 12.915 12.915 0 0 1 48.702 42.803 A 10.864 10.864 0 0 1 46.38 41.91 A 10.221 10.221 0 0 1 43.616 39.829 A 9.408 9.408 0 0 1 42.54 38.43 Q 41.16 36.24 41.16 33.54 Q 41.16 30.54 42.87 28.35 A 10.213 10.213 0 0 1 45.821 25.813 A 13.308 13.308 0 0 1 47.58 24.96 A 16.251 16.251 0 0 1 51.148 24.006 A 22.254 22.254 0 0 1 54.54 23.76 A 29.8 29.8 0 0 1 57.259 23.889 A 35.603 35.603 0 0 1 58.98 24.09 A 23.869 23.869 0 0 1 61.12 24.487 A 17.416 17.416 0 0 1 63.12 25.08 Z M 63.12 32.58 L 63.12 28.68 Q 61.26 27.96 59.22 27.57 Q 57.18 27.18 55.2 27.18 A 16.733 16.733 0 0 0 52.617 27.368 Q 51.184 27.592 50.008 28.084 A 8.629 8.629 0 0 0 48.69 28.77 A 5.92 5.92 0 0 0 47.234 30.048 A 4.767 4.767 0 0 0 46.2 33.12 Q 46.2 34.62 47.01 36.03 A 5.946 5.946 0 0 0 48.708 37.89 A 7.455 7.455 0 0 0 49.41 38.34 A 6.616 6.616 0 0 0 51.296 39.039 Q 52.234 39.24 53.34 39.24 Q 55.8 39.24 58.02 38.25 A 11.998 11.998 0 0 0 59.875 37.229 A 8.84 8.84 0 0 0 61.56 35.76 A 8.657 8.657 0 0 0 62.309 34.752 A 7.071 7.071 0 0 0 62.7 34.05 A 5.791 5.791 0 0 0 62.921 33.533 Q 63.117 33.001 63.12 32.594 A 1.725 1.725 0 0 0 63.12 32.58 Z"
+                    d="M 63.12 25.08 L 63.12 22.8 A 9.676 9.676 0 0 0 62.841 20.41 A 6.745 6.745 0 0 0 60.96 17.13 Q 58.8 15.06 54.84 15.06 Q 52.26 15.06 49.89 15.99 Q 47.594 16.891 45.045 18.552 A 37.522 37.522 0 0 0 44.88 18.66 L 42.96 14.94 A 27.932 27.932 0 0 1 46.403 12.91 A 22.732 22.732 0 0 1 49.08 11.79 Q 52.14 10.74 55.44 10.74 Q 61.259 10.74 64.708 13.872 A 11.139 11.139 0 0 1 64.92 14.07 Q 68.4 17.4 68.4 23.34 L 68.4 36.6 Q 68.4 37.56 68.79 38.01 A 1.271 1.271 0 0 0 69.243 38.336 Q 69.584 38.487 70.08 38.52 L 70.08 42.6 A 38.81 38.81 0 0 1 69.525 42.682 Q 69.086 42.743 68.73 42.78 Q 68.163 42.84 67.804 42.84 A 2.724 2.724 0 0 1 67.8 42.84 A 5.389 5.389 0 0 1 66.728 42.74 Q 66.105 42.614 65.628 42.326 A 2.763 2.763 0 0 1 65.01 41.82 A 4.641 4.641 0 0 1 64.388 40.971 A 3.378 3.378 0 0 1 63.96 39.66 L 63.84 37.68 A 13.149 13.149 0 0 1 59.207 41.431 A 15.69 15.69 0 0 1 58.5 41.76 A 17.37 17.37 0 0 1 54.5 42.98 A 14.931 14.931 0 0 1 51.96 43.2 A 12.915 12.915 0 0 1 48.702 42.803 A 10.864 10.864 0 0 1 46.38 41.91 A 10.221 10.221 0 0 1 43.616 39.829 A 9.408 9.408 0 0 1 42.54 38.43 Q 41.16 36.24 41.16 33.54 Q 41.16 30.54 42.87 28.35 A 10.213 10.213 0 0 1 45.821 25.813 A 13.308 13.308 0 0 1 47.58 24.96 A 16.251 16.251 0 0 1 51.148 24.006 A 22.254 22.254 0 0 1 54.54 23.76 A 29.8 29.8 0 0 1 57.259 23.889 A 35.603 35.603 0 0 1 58.98 24.09 A 23.869 23.869 0 0 1 61.12 24.487 A 17.416 17.416 0 0 1 63.12 25.08 Z M 63.12 32.58 L 63.12 28.68 Q 61.26 27.96 59.22 27.57 Q 57.18 27.18 55.2 27.18 A 16.733 16.733 0 0 0 52.617 27.368 Q 51.184 27.592 50.008 28.084 A 8.629 8.629 0 0 0 48.69 28.77 A 5.92 5.92 0 0 0 47.234 30.048 A 4.767 4.767 0 0 0 46.2 33.12 Q 46.2 34.62 47.01 36.03 A 5.946 5.946 0 0 0 48.708 37.89 A 7.455 7.455 0 0 0 49.41 38.34 A 6.616 6.616 0 0 0 51.296 39.039 Q 52.234 39.24 53.34 39.24 Q 55.8 39.24 58.02 38.25 A 11.998 11.998 0 0 0 59.875 37.229 A 8.84 8.84 0 0 0 61.56 35.76 A 8.657 8.657 0 0 0 62.309 34.752 A 7.071 7.071 0 0 0 62.7 34.05 A 5.791 5.791 0 0 0 62.921 33.533 Q 63.117 33.001 63.12 32.594 A 1.725 1.725 0 0 0 63.12 32.58 Z"
                     style={{ fill: diamondColor }}
                   />
                   <path
@@ -271,7 +270,7 @@ const OneColorPage = () => {
             background: `linear-gradient(135deg, ${baseColor}, ${diamondColor})`
           }}
         >
-          <Harmony3DText baseColor={baseColor} diamondColor={diamondColor} />
+          <Harmony3DText baseColor={baseColor} diamondColor={baseColor} harColor={baseColor} monyColor={diamondColor} />
 
         </section>
         <section
@@ -291,8 +290,8 @@ const OneColorPage = () => {
               className="w-1/2 h-full flex items-center justify-center relative color-container"
               style={{
                 background: baseColor,
-                borderTopLeftRadius: '25px',  // Adjust the radius as needed
-                borderBottomLeftRadius: '25px', // Adjust the radius as needed
+                borderTopLeftRadius: '25px',
+                borderBottomLeftRadius: '25px',
               }}
             >
               <div className="absolute bottom-28 text-center">
@@ -345,8 +344,8 @@ const OneColorPage = () => {
               className="w-1/2 h-full flex items-center justify-center relative color-container"
               style={{
                 background: diamondColor,
-                borderTopRightRadius: '25px',  // Adjust the radius as needed
-                borderBottomRightRadius: '25px', // Adjust the radius as needed
+                borderTopRightRadius: '25px',
+                borderBottomRightRadius: '25px',
               }}
             >
               <div className="absolute bottom-28 text-center">
@@ -376,7 +375,7 @@ const OneColorPage = () => {
                   </button>
                   <p className="text-1xl font-semibold no-select" style={{ color: isColorDark(diamondColor) ? 'white' : 'black' }}>{diamondColorName}</p>
                   {isDiamondPickerVisible && (
-                    <div ref={diamondPickerRef} style={{ position: 'absolute', top: '30%', left: 'calc(50% - 85px)', transform: 'translate(0, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
+                    <div ref={diamondPickerRef} style={{ position: 'absolute', top: '30%', right: 'calc(50% + 206px)', transform: 'translate(50%, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                       <SketchPicker 
                         color={diamondColor} 
                         onChange={handleDiamondColorChange} 
