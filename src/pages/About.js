@@ -219,14 +219,14 @@ const AboutPage = () => {
       <div className="flex-grow relative">
         {/* About section */}
         <section
-          className={`flex items-center justify-center svg-center`}
-          style={{ backgroundColor: baseColor, paddingTop: '50px', minHeight: '120vh' }} // Adjust minHeight to extend the section
+          className="flex items-center justify-center svg-center"
+          style={{ backgroundColor: baseColor, paddingTop: '50px', minHeight: '100vh' }} // Adjusted to 100vh
         >
-          <AboutSVG baseColor={baseColor} diamondColor={diamondColor} harColor={harColor} monyColor={monyColor} /> {/* Render your additional SVG component here */}
+          <AboutSVG baseColor={baseColor} diamondColor={diamondColor} harColor={harColor} monyColor={monyColor} />
         </section>
         {/* Existing color picker section */}
         <section
-          className="h-screen flex items-center justify-center svg-center relative"
+          className="h-full flex items-center justify-center svg-center relative"
           style={{ position: 'relative' }}
         >
           <div
