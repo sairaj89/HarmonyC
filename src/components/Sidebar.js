@@ -6,7 +6,7 @@ import { faEye, faEyeSlash, faDiceD6, faPager, faImage, faInfoCircle } from '@fo
 import AdminLogo from '../images/harmonieee12121.png';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSidebar } from '../contexts/SidebarContext';
-import './Sidebar.css'
+import './Sidebar.css';
 
 const Sidebar = ({ setSelectedOption }) => {
   const { brandOpen, setBrandOpen, websiteOpen, setWebsiteOpen, illustrationOpen, setIllustrationOpen, isFirstRender } = useSidebar();

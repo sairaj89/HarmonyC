@@ -49,7 +49,7 @@
   }
   
   .sidebar-separator {
-    border-bottom: 1px solid #6c7d84; /* Updated border color for the separator */
+    border-bottom: 1px solid #6c7d84; /* Update border color for the separator */
     margin: 16px 0; /* Add vertical spacing around the separator */
   }
   
@@ -59,7 +59,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    border-bottom: 1px solid #6c7d84; /* Updated border color */
+    border-bottom: 1px solid #6c7d84; /* Update border color */
   }
   
   .sidebar-eye-icon {
@@ -80,30 +80,8 @@
     transition: max-height 0.5s ease-in-out;
   }
   
-  .animate-dropdown .animate-fade-in {
-    animation: fadeIn 0.3s forwards;
-  }
-  
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  .animate-dropdown .animate-fade-out {
-    animation: fadeOut 0.3s forwards;
-  }
-  
-  @keyframes fadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
+  .sidebar-locked .center-container {
+    margin-left: 16rem; /* Adjust based on the width of your sidebar */
   }
   
   /* Custom scrollbar styles */
@@ -136,9 +114,9 @@
     overflow-y: auto;
   }
   
-  /* Adjust alignment when sidebar is locked */
-  .sidebar-locked .center-container {
-    margin-left: 16rem; /* Adjust based on the width of your sidebar */
+  /* Adjust alignment when sidebar is not locked */
+  .center-container {
+    margin-left: 0;
   }
   
   /* Default center alignment */
@@ -148,11 +126,6 @@
     align-items: center;
     height: 100vh; /* Adjust as needed */
     transition: margin-left 0.3s ease-in-out; /* Smooth transition for margin change */
-  }
-  
-  /* Adjust alignment when sidebar is not locked */
-  .center-container {
-    margin-left: 0;
   }
   
   /* Default center alignment for the new SVG */
