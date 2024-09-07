@@ -49,7 +49,7 @@ const ThreeColorsPage = () => {
   const fetchInitialColors = async () => {
     try {
       setProgress(30);
-      const colors = await getColors();
+      const colors = await getColors('threeColors'); // Pass mode here
       const initialBaseColor = rgbArrayToHex(colors.mainColor);
       const initialAdditionalColors = [
         colors.secondaryColor ? rgbArrayToHex(colors.secondaryColor) : '#cccccc',
@@ -98,7 +98,7 @@ const ThreeColorsPage = () => {
     }
     try {
       setProgress(30);
-      const colors = await getColors();
+      const colors = await getColors('threeColors'); // Pass mode here
       const newBaseColor = isBaseColorLocked ? baseColor : rgbArrayToHex(colors.mainColor);
       const newAdditionalColors = additionalColors.map((color, index) => {
         if (index === 0 && colors.secondaryColor) {

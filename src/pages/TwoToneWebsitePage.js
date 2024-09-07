@@ -238,7 +238,6 @@ const TwoToneWebsitePage = () => {
             padding: '80px 0',
             marginLeft: sidebarLocked ? '250px' : '0',
             transition: 'margin-left 0.3s',
-            width: '100vw',
             overflow: 'hidden',
           }}
         >

@@ -53,7 +53,9 @@ const AboutPage = () => {
   const fetchInitialColors = async () => {
     try {
       setProgress(30);
-      const colors = await getColors();
+      // Set the desired mode, e.g., 'triad' or 'analogic'
+      const mode = 'triad'; 
+      const colors = await getColors(mode); // Pass the mode parameter
       const initialBaseColor = rgbArrayToHex(colors.mainColor);
       const initialAdditionalColors = [
         colors.secondaryColor ? rgbArrayToHex(colors.secondaryColor) : '#cccccc',
@@ -102,7 +104,8 @@ const AboutPage = () => {
     }
     try {
       setProgress(30);
-      const colors = await getColors();
+      const mode = 'triad';  // Set the desired mode
+      const colors = await getColors(mode); // Pass the mode parameter
       const newBaseColor = isBaseColorLocked ? baseColor : rgbArrayToHex(colors.mainColor);
       const newAdditionalColors = additionalColors.map((color, index) => {
         if (index === 0 && colors.secondaryColor) {
