@@ -58,7 +58,7 @@ const Harmony3DTextThreeColors = ({ baseColor, diamondColor, harColor, monyColor
           width: '800px',
           height: '600px',
           background: 'transparent',
-          display: 'block',
+          display: 'flex',
           margin: 'auto',
         }}
         camera={{ position: [0, 2, 5], fov: 50 }}

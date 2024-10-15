@@ -3,7 +3,7 @@ import React from 'react';
 
 const MinimalistWeb3 = ({ baseColor, diamondColor, harColor }) => {
   return (
-<svg className="svg-drop-shadow" width="700" height="464" viewBox="0 0 694 464" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg className="svg-drop-shadow" id='ot8' width="700" height="464" viewBox="0 0 694 464" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="694" height="464" fill={diamondColor}/>
 <rect x="59" width="575" height="407" fill={baseColor}/>
 <path d="M594.182 296.18L573.35 326H567.134L587.924 296.18H594.182Z" fill={harColor}/>

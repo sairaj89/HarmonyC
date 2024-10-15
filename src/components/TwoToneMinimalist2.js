@@ -3,7 +3,7 @@ import React from 'react';
 
 const TwoToneMinimalistTwo = ({ baseColor, diamondColor, harColor, monyColor }) => {
   return (
-<svg className = "svg-drop-shadow"  width="700" height="516" viewBox="0 0 823 516" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg className = "svg-drop-shadow"  id='tt3' width="700" height="516" viewBox="0 0 823 516" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="823" height="516" fill={monyColor} fill-opacity="0.5"/>
 <rect width="412" height="516" fill={baseColor} />
 <image

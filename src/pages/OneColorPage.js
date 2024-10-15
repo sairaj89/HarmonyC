@@ -148,8 +148,8 @@ const OneColorPage = () => {
           isBackButtonDisabled={colorHistory.length <= 1}
           loading={loading}
         />
-        <div className="flex-grow relative flex items-center justify-center">
-          <img src={loadingIcon} alt="Loading..." style={{ width: '265px', height: '265px', marginLeft: '220px' }} />
+        <div className="flex-grow relative flex items-center justify-center" style={{display:'flex', width:'100vw',flex:'1 1 auto'}}>
+          <img src={loadingIcon} id='img1' alt="Loading..." />
         </div>
       </div>
     );
@@ -181,8 +181,8 @@ const OneColorPage = () => {
           className="h-screen flex items-center justify-center center-container"
           style={{ backgroundColor: baseColor }}
         >
-          <div className="flex flex-col items-center relative">
-            <div className="flex items-center mb-8">
+          <div className="flex flex-col items-center relative" id='on0'>
+            <div className="flex items-center mb-8" id='on1'>
               <svg
                 width="50px"
                 height="50px"
@@ -202,6 +202,7 @@ const OneColorPage = () => {
               </svg>
               <div style={{ width: '10px' }}></div>
               <svg
+                id='oc1'
                 width="180"
                 height="80"
                 viewBox="0 0 252.78 56.1"
@@ -262,9 +263,10 @@ const OneColorPage = () => {
         </section>
         <div style={{ height: '0.5px', backgroundColor: baseColor }}></div> {/* New dividing line */}
         <section className="h-screen flex items-center justify-center svg-center" style={{ backgroundColor: diamondColor }}>
-          <BrandSVGOneColor baseColor={baseColor} diamondColor={diamondColor}/>
+          <BrandSVGOneColor baseColor={baseColor} diamondColor={diamondColor} />
         </section>
         <section
+        id='onc3'
           className="h-screen flex items-center justify-center svg-center"
           style={{
             background: `linear-gradient(135deg, ${baseColor}, ${diamondColor})`
@@ -275,18 +277,19 @@ const OneColorPage = () => {
 
         </section>
         <section
-          className="h-screen flex items-center justify-center svg-center relative"
+          className="h-screen flex items-center justify-center svg-center relative" id='onc'
           style={{ position: 'relative' }}
         >
           <div
             className="absolute inset-0"
+            id='onc1'
             style={{
               backgroundColor: diamondColor,
               opacity: 0.8,
               zIndex: 0,
             }}
           ></div>
-          <div className="flex w-[825px] h-[425px] relative z-10 custom-shadow" style={{ borderRadius: '25px' }}>
+          <div className="flex w-[825px] h-[425px] relative z-10 custom-shadow" id='cs1' style={{ borderRadius: '25px' }}>
             <div
               className="w-1/2 h-full flex items-center justify-center relative color-container"
               style={{
@@ -298,21 +301,21 @@ const OneColorPage = () => {
               <div className="absolute bottom-28 text-center">
                 <div className="flex flex-col items-center">
                   <div className="icon-container mb-2" style={{ color: isColorDark(baseColor) ? 'white' : 'black' }}>
-                    <FontAwesomeIcon 
-                      icon={faCopy} 
+                    <FontAwesomeIcon
+                      icon={faCopy}
                       onClick={() => copyToClipboard(baseColor)}
                       className="icon"
                       title="Copy"
                     />
-                    <FontAwesomeIcon 
-                      icon={isBaseColorLocked ? faLock : faLockOpen} 
+                    <FontAwesomeIcon
+                      icon={isBaseColorLocked ? faLock : faLockOpen}
                       onClick={() => setIsBaseColorLocked(!isBaseColorLocked)}
                       className="icon"
                       title={isBaseColorLocked ? "Unlock" : "Lock"}
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='tx1'
                     style={{ color: isColorDark(baseColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setBasePickerVisible(!isBasePickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -323,10 +326,10 @@ const OneColorPage = () => {
                   <p className="text-1xl font-semibold no-select" style={{ color: isColorDark(baseColor) ? 'white' : 'black' }}>{baseColorName}</p>
                   {isBasePickerVisible && (
                     <div ref={basePickerRef} style={{ position: 'absolute', top: '30%', left: 'calc(50% + 85px)', transform: 'translate(0, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
-                      <SketchPicker 
-                        color={baseColor} 
-                        onChange={handleBaseColorChange} 
-                        width="200px" 
+                      <SketchPicker
+                        color={baseColor}
+                        onChange={handleBaseColorChange}
+                        width="200px"
                         styles={{ default: { picker: { boxShadow: 'none', border: '1px solid #d3d3d3', borderRadius: '8px' } } }}
                       />
                       <button
@@ -352,21 +355,21 @@ const OneColorPage = () => {
               <div className="absolute bottom-28 text-center">
                 <div className="flex flex-col items-center">
                   <div className="icon-container mb-2" style={{ color: isColorDark(diamondColor) ? 'white' : 'black' }}>
-                    <FontAwesomeIcon 
-                      icon={faCopy} 
+                    <FontAwesomeIcon
+                      icon={faCopy}
                       onClick={() => copyToClipboard(diamondColor)}
                       className="icon"
                       title="Copy"
                     />
-                    <FontAwesomeIcon 
-                      icon={isAdditionalColorLocked[0] ? faLock : faLockOpen} 
+                    <FontAwesomeIcon
+                      icon={isAdditionalColorLocked[0] ? faLock : faLockOpen}
                       onClick={() => setIsAdditionalColorLocked([!isAdditionalColorLocked[0]])}
                       className="icon"
                       title={isAdditionalColorLocked[0] ? "Unlock" : "Lock"}
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='tx2'
                     style={{ color: isColorDark(diamondColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setDiamondPickerVisible(!isDiamondPickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -377,10 +380,10 @@ const OneColorPage = () => {
                   <p className="text-1xl font-semibold no-select" style={{ color: isColorDark(diamondColor) ? 'white' : 'black' }}>{diamondColorName}</p>
                   {isDiamondPickerVisible && (
                     <div ref={diamondPickerRef} style={{ position: 'absolute', top: '30%', right: 'calc(50% + 206px)', transform: 'translate(50%, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
-                      <SketchPicker 
-                        color={diamondColor} 
-                        onChange={handleDiamondColorChange} 
-                        width="200px" 
+                      <SketchPicker
+                        color={diamondColor}
+                        onChange={handleDiamondColorChange}
+                        width="200px"
                         styles={{ default: { picker: { boxShadow: 'none', border: '1px solid #d3d3d3', borderRadius: '8px' } } }}
                       />
                       <button

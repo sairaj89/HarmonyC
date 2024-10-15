@@ -90,7 +90,7 @@ const NavbarTwoColor = ({
   return (
     <header className="flex items-center h-16 px-4 shadow fixed top-0 w-full z-20" style={{ backgroundColor: '#07252d' }}>
       <div className="flex-grow"></div>
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-4" id='nv2'>
         <ColorSelector
           color={loading ? '#FFFFFF' : baseColor}
           onChange={(color) => handleColorChange(0, color)}
@@ -120,8 +120,8 @@ const NavbarTwoColor = ({
             pickerRef={index === 0 ? diamondPickerRef : extraPickerRef}
           />
         ))}
-        <div className="border-l border-gray-300 h-8 mx-4"></div>
-        <button onClick={onBack} className={`back-button ${isBackButtonDisabled ? 'opacity-50 cursor-not-allowed' : ''}`} disabled={isBackButtonDisabled}>
+        <div className="border-l border-gray-300 h-8 mx-4" id='br2'></div>
+        <button onClick={onBack} className={`back-button ${isBackButtonDisabled ? 'opacity-50 cursor-not-allowed' : ''}`} id='b2' disabled={isBackButtonDisabled}>
           <ArrowLeftIcon className="h-4 w-4" />
         </button>
         <button onClick={onGenerate} className="ml-4 generate-button">
@@ -164,7 +164,7 @@ const ColorSelector = ({
   return (
     <div className="relative">
       <button
-        className={`w-8 h-8 rounded-full border-0 cursor-pointer ${isLocked ? 'bg-opacity-50' : ''} color-button ${isSelected ? 'selected' : ''}`}
+        className={`w-8 h-8 rounded-full border-0 cursor-pointer ${isLocked ? 'bg-opacity-50' : ''} color-button ${isSelected ? 'selected' : ''}`} id='cl2'
         style={{ backgroundColor: color }}
         onClick={onToggle}
       >
@@ -175,7 +175,7 @@ const ColorSelector = ({
         )}
       </button>
       {isOpen && (
-        <div ref={pickerRef} className="absolute z-10 mt-2 bg-white p-3 rounded shadow-md w-48 border border-gray-300 menu-button">
+        <div ref={pickerRef} className="absolute z-10 mt-2 bg-white p-3 rounded shadow-md w-48 border border-gray-300 menu-button" id='dd2'>
           <button
             className="flex items-center mb-2 text-gray-700 hover:bg-gray-100 p-2 rounded"
             onClick={() => {

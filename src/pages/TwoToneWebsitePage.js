@@ -200,7 +200,7 @@ const TwoToneWebsitePage = () => {
         />
         <LoadingBar color="#f11946" ref={loadingBarRef} />
         <div className="flex-grow relative flex items-center justify-center">
-          <img src={loadingIcon} alt="Loading..." style={{ width: '265px', height: '265px', marginLeft: '220px' }} />
+          <img src={loadingIcon} id='imgon2' alt="Loading..."  />
         </div>
       </div>
     );
@@ -277,6 +277,7 @@ const TwoToneWebsitePage = () => {
             }}
           >
             <img
+            id='tt4'
               src={require('../images/keanu.png')}
               alt="Background"
               style={{
@@ -319,7 +320,7 @@ const TwoToneWebsitePage = () => {
               zIndex: 0,
             }}
           ></div>
-          <div className="flex w-[825px] h-[425px] relative z-10 custom-shadow" style={{ borderRadius: '25px' }}>
+          <div className="flex w-[825px] h-[425px] relative z-10 custom-shadow" id='cs4' style={{ borderRadius: '25px' }}>
             <div
               className="w-1/4 h-full flex items-center justify-center relative color-container"
               style={{
@@ -345,7 +346,7 @@ const TwoToneWebsitePage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='ot16'
                     style={{ color: isColorDark(baseColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setBasePickerVisible(!isBasePickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -353,7 +354,7 @@ const TwoToneWebsitePage = () => {
                   >
                     {baseColor}
                   </button>
-                  <p className="text-1xl font-semibold" style={{ color: isColorDark(baseColor) ? 'white' : 'black' }}>{baseColorName}</p>
+                  <p className="text-1xl font-semibold" id='ot20' style={{ color: isColorDark(baseColor) ? 'white' : 'black' }}>{baseColorName}</p>
                   {isBasePickerVisible && (
                     <div ref={basePickerRef} style={{ position: 'absolute', top: '30%', left: 'calc(50% + 85px)', transform: 'translate(0, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                       <SketchPicker
@@ -397,7 +398,7 @@ const TwoToneWebsitePage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='ot17'
                     style={{ color: isColorDark(diamondColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setDiamondPickerVisible(!isDiamondPickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -405,7 +406,7 @@ const TwoToneWebsitePage = () => {
                   >
                     {diamondColor}
                   </button>
-                  <p className="text-1xl font-semibold" style={{ color: isColorDark(diamondColor) ? 'white' : 'black' }}>{diamondColorName}</p>
+                  <p className="text-1xl font-semibold" id='ot21' style={{ color: isColorDark(diamondColor) ? 'white' : 'black' }}>{diamondColorName}</p>
                   {isDiamondPickerVisible && (
                     <div ref={diamondPickerRef} style={{ position: 'absolute', top: '30%', left: 'calc(50% + 85px)', transform: 'translate(0, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                       <SketchPicker
@@ -449,7 +450,7 @@ const TwoToneWebsitePage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='ot18'
                     style={{ color: isColorDark(harColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setHarPickerVisible(!isHarPickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -457,7 +458,7 @@ const TwoToneWebsitePage = () => {
                   >
                     {harColor}
                   </button>
-                  <p className="text-1xl font-semibold" style={{ color: isColorDark(harColor) ? 'white' : 'black' }}>{harColorName}</p>
+                  <p className="text-1xl font-semibold" id='ot22' style={{ color: isColorDark(harColor) ? 'white' : 'black' }}>{harColorName}</p>
                   {isHarPickerVisible && (
                     <div ref={harPickerRef} style={{ position: 'absolute', top: '30%', left: 'calc(50% + 85px)', transform: 'translate(0, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                       <SketchPicker
@@ -503,7 +504,7 @@ const TwoToneWebsitePage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='ot19'
                     style={{ color: isColorDark(monyColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setMonyPickerVisible(!isMonyPickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -511,7 +512,7 @@ const TwoToneWebsitePage = () => {
                   >
                     {monyColor}
                   </button>
-                  <p className="text-1xl font-semibold" style={{ color: isColorDark(monyColor) ? 'white' : 'black' }}>{monyColorName}</p>
+                  <p className="text-1xl font-semibold" id='ot23' style={{ color: isColorDark(monyColor) ? 'white' : 'black' }}>{monyColorName}</p>
                   {isMonyPickerVisible && (
                     <div ref={monyPickerRef} style={{ position: 'absolute', top: '30%', left: 'calc(50% + 85px)', transform: 'translate(0, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                       <SketchPicker

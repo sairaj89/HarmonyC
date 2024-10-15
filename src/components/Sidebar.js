@@ -128,7 +128,7 @@ const Sidebar = ({ setSelectedOption }) => {
       <div
         className={`sidebar bg-white text-gray-800 h-full flex flex-col fixed top-0 z-30 transition-transform duration-300 ${isSidebarOpen ? 'show' : ''
           } sf-pro-font ${isPinned ? 'pinned' : ''}`}
-        style={{ width: '16rem' }}
+        
       >
         <div className="sidebar-header p-4 flex justify-between items-center">
           <img src={AdminLogo} alt="Admin Logo" className="h-12 w-12" />

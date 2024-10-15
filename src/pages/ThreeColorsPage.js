@@ -184,7 +184,7 @@ const ThreeColorsPage = () => {
           loading={loading}
         />
         <div className="flex-grow relative flex items-center justify-center">
-          <img src={loadingIcon} alt="Loading..." style={{ width: '265px', height: '265px', marginLeft: '220px' }} />
+          <img src={loadingIcon} alt="Loading..." id='img3'/>
         </div>
       </div>
     );
@@ -218,7 +218,7 @@ const ThreeColorsPage = () => {
           style={{ backgroundColor: baseColor }}
         >
           <div className="flex flex-col items-center relative">
-            <div className="flex items-center mb-8">
+            <div className="flex items-center mb-8" id='on3'>
               <svg
                 width="50px"
                 height="50px"
@@ -316,7 +316,7 @@ const ThreeColorsPage = () => {
 
         </section>
         <section
-          className="h-screen flex items-center justify-center svg-center relative"
+          className="h-screen flex items-center justify-center svg-center relative" 
           style={{ position: 'relative' }}
         >
           <div
@@ -327,7 +327,7 @@ const ThreeColorsPage = () => {
               zIndex: 0,
             }}
           ></div>
-          <div className="flex w-[825px] h-[425px] relative z-10 custom-shadow" style={{ borderRadius: '25px' }}>
+          <div className="flex w-[825px] h-[425px] relative z-10 custom-shadow" id='cs3' style={{ borderRadius: '25px' }}>
             <div
               className="w-1/2 h-full flex items-center justify-center relative color-container"
               style={{
@@ -353,7 +353,7 @@ const ThreeColorsPage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='th1'
                     style={{ color: isColorDark(baseColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setBasePickerVisible(!isBasePickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -361,7 +361,7 @@ const ThreeColorsPage = () => {
                   >
                     {baseColor}
                   </button>
-                  <p className="text-1xl font-semibold no-select" style={{ color: isColorDark(baseColor) ? 'white' : 'black' }}>{ntc.name(baseColor)[1]}</p>
+                  <p className="text-1xl font-semibold no-select" id='ts' style={{ color: isColorDark(baseColor) ? 'white' : 'black' }}>{ntc.name(baseColor)[1]}</p>
                   {isBasePickerVisible && (
                     <div ref={basePickerRef} style={{ position: 'absolute', top: '30%', left: 'calc(50% + 85px)', transform: 'translate(0, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                       <SketchPicker
@@ -405,7 +405,7 @@ const ThreeColorsPage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='th2'
                     style={{ color: isColorDark(diamondColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setDiamondPickerVisible(!isDiamondPickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -413,7 +413,7 @@ const ThreeColorsPage = () => {
                   >
                     {diamondColor}
                   </button>
-                  <p className="text-1xl font-semibold no-select" style={{ color: isColorDark(diamondColor) ? 'white' : 'black' }}>{ntc.name(diamondColor)[1]}</p>
+                  <p className="text-1xl font-semibold no-select" id='ts1' style={{ color: isColorDark(diamondColor) ? 'white' : 'black' }}>{ntc.name(diamondColor)[1]}</p>
                   {isDiamondPickerVisible && (
                     <div ref={diamondPickerRef} style={{ position: 'absolute', top: '30%', right: 'calc(50% + 206px)', transform: 'translate(50%, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                       <SketchPicker
@@ -457,7 +457,7 @@ const ThreeColorsPage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='th3'
                     style={{ color: isColorDark(harColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setHarPickerVisible(!isHarPickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -465,7 +465,7 @@ const ThreeColorsPage = () => {
                   >
                     {harColor}
                   </button>
-                  <p className="text-1xl font-semibold no-select" style={{ color: isColorDark(harColor) ? 'white' : 'black' }}>{ntc.name(harColor)[1]}</p>
+                  <p className="text-1xl font-semibold no-select" id='ts2' style={{ color: isColorDark(harColor) ? 'white' : 'black' }}>{ntc.name(harColor)[1]}</p>
                   {isHarPickerVisible && (
                     <div ref={harPickerRef} style={{ position: 'absolute', top: '30%', right: 'calc(50% + 206px)', transform: 'translate(50%, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                       <SketchPicker
@@ -511,7 +511,7 @@ const ThreeColorsPage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='th4'
                     style={{ color: isColorDark(monyColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setMonyPickerVisible(!isMonyPickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -519,7 +519,7 @@ const ThreeColorsPage = () => {
                   >
                     {monyColor}
                   </button>
-                  <p className="text-1xl font-semibold no-select" style={{ color: isColorDark(monyColor) ? 'white' : 'black' }}>{ntc.name(monyColor)[1]}</p>
+                  <p className="text-1xl font-semibold no-select" id='ts3' style={{ color: isColorDark(monyColor) ? 'white' : 'black' }}>{ntc.name(monyColor)[1]}</p>
                   {isMonyPickerVisible && (
                     <div ref={monyPickerRef} style={{ position: 'absolute', top: '30%', right: 'calc(50% + 206px)', transform: 'translate(50%, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                       <SketchPicker

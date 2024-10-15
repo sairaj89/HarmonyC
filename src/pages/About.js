@@ -191,7 +191,7 @@ const AboutPage = () => {
           loading={loading}
         />
         <div className="flex-grow relative flex items-center justify-center">
-          <img src={loadingIcon} alt="Loading..." style={{ width: '265px', height: '265px', marginLeft: '220px' }} />
+          <img src={loadingIcon} id='imgab' alt="Loading..."  />
         </div>
       </div>
     );
@@ -222,7 +222,7 @@ const AboutPage = () => {
       <div className="flex-grow relative">
         {/* About section */}
         <section
-          className="flex items-center justify-center svg-center"
+          className="flex items-center justify-center svg-center" id='ab2'
           style={{ backgroundColor: baseColor, paddingTop: '50px', minHeight: '100vh' }} // Adjusted to 100vh
         >
           <AboutSVG baseColor={baseColor} diamondColor={diamondColor} harColor={harColor} monyColor={monyColor} />
@@ -240,7 +240,7 @@ const AboutPage = () => {
               zIndex: 0,
             }}
           ></div>
-          <div className="flex w-[825px] h-[425px] relative z-10 custom-shadow" style={{ borderRadius: '25px' }}>
+          <div className="flex w-[825px] h-[425px] relative z-10 custom-shadow" id='ab1' style={{ borderRadius: '25px' }}>
             <div
               className="w-1/4 h-full flex items-center justify-center relative color-container"
               style={{
@@ -266,7 +266,7 @@ const AboutPage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='th5'
                     style={{ color: isColorDark(baseColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setBasePickerVisible(!isBasePickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -274,7 +274,7 @@ const AboutPage = () => {
                   >
                     {baseColor}
                   </button>
-                  <p className="text-1xl font-semibold" style={{ color: isColorDark(baseColor) ? 'white' : 'black' }}>{getColorName(baseColor)}</p>
+                  <p className="text-1xl font-semibold" id='as' style={{ color: isColorDark(baseColor) ? 'white' : 'black' }}>{getColorName(baseColor)}</p>
                   {isBasePickerVisible && (
                     <div ref={basePickerRef} style={{ position: 'absolute', top: '30%', left: 'calc(50% + 85px)', transform: 'translate(0, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                       <SketchPicker 
@@ -319,7 +319,7 @@ const AboutPage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='th6'
                     style={{ color: isColorDark(diamondColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setDiamondPickerVisible(!isDiamondPickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -327,7 +327,7 @@ const AboutPage = () => {
                   >
                     {diamondColor}
                   </button>
-                  <p className="text-1xl font-semibold" style={{ color: isColorDark(diamondColor) ? 'white' : 'black' }}>{getColorName(diamondColor)}</p>
+                  <p className="text-1xl font-semibold" id='as1' style={{ color: isColorDark(diamondColor) ? 'white' : 'black' }}>{getColorName(diamondColor)}</p>
                   {isDiamondPickerVisible && (
                     <div ref={diamondPickerRef} style={{ position: 'absolute', top: '30%', left: 'calc(50% + 85px)', transform: 'translate(0, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                       <SketchPicker 
@@ -372,7 +372,7 @@ const AboutPage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='th7'
                     style={{ color: isColorDark(harColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setHarPickerVisible(!isHarPickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -380,7 +380,7 @@ const AboutPage = () => {
                   >
                     {harColor}
                   </button>
-                  <p className="text-1xl font-semibold" style={{ color: isColorDark(harColor) ? 'white' : 'black' }}>{getColorName(harColor)}</p>
+                  <p className="text-1xl font-semibold" id='as2' style={{ color: isColorDark(harColor) ? 'white' : 'black' }}>{getColorName(harColor)}</p>
                   {isHarPickerVisible && (
                     <div ref={harPickerRef} style={{ position: 'absolute', top: '30%', left: 'calc(50% + 85px)', transform: 'translate(0, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                       <SketchPicker 
@@ -426,7 +426,7 @@ const AboutPage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='th8'
                     style={{ color: isColorDark(monyColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setMonyPickerVisible(!isMonyPickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -434,7 +434,7 @@ const AboutPage = () => {
                   >
                     {monyColor}
                   </button>
-                  <p className="text-1xl font-semibold" style={{ color: isColorDark(monyColor) ? 'white' : 'black' }}>{getColorName(monyColor)}</p>
+                  <p className="text-1xl font-semibold" id='as3' style={{ color: isColorDark(monyColor) ? 'white' : 'black' }}>{getColorName(monyColor)}</p>
                   {isMonyPickerVisible && (
                     <div ref={monyPickerRef} style={{ position: 'absolute', top: '30%', left: 'calc(50% + 85px)', transform: 'translate(0, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                       <SketchPicker 

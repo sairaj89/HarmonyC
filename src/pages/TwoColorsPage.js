@@ -160,7 +160,7 @@ const TwoColorsPage = () => {
           loading={loading}
         />
         <div className="flex-grow relative flex items-center justify-center">
-          <img src={loadingIcon} alt="Loading..." style={{ width: '265px', height: '265px', marginLeft: '220px' }} />
+          <img src={loadingIcon} id='img2' alt="Loading..." />
         </div>
       </div>
     ); // Render loading icon while loading initial colors
@@ -276,6 +276,7 @@ const TwoColorsPage = () => {
           <BrandSVGTwoColors baseColor={baseColor} diamondColor={diamondColor} extraColor={extraColor}/>
         </section>
         <section
+        id='onc5'
           className="h-screen flex items-center justify-center svg-center"
           style={{
             background: `linear-gradient(135deg, ${baseColor}, ${diamondColor})`
@@ -295,7 +296,7 @@ const TwoColorsPage = () => {
               zIndex: 0,
             }}
           ></div>
-          <div className="flex w-[825px] h-[425px] relative z-10 custom-shadow" style={{ borderRadius: '25px' }}>
+          <div className="flex w-[825px] h-[425px] relative z-10 custom-shadow" id='cs2' style={{ borderRadius: '25px' }}>
             <div
               className="w-1/2 h-full flex items-center justify-center relative color-container"
               style={{
@@ -321,7 +322,7 @@ const TwoColorsPage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='tct'
                     style={{ color: isColorDark(baseColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setBasePickerVisible(!isBasePickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -375,7 +376,7 @@ const TwoColorsPage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='tct1'
                     style={{ color: isColorDark(diamondColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setDiamondPickerVisible(!isDiamondPickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -429,7 +430,7 @@ const TwoColorsPage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='tct2'
                     style={{ color: isColorDark(extraColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setExtraPickerVisible(!isExtraPickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}

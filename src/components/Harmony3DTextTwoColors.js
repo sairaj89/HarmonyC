@@ -49,13 +49,14 @@ const Model = (props) => {
 
 const Harmony3DTextTwoColors = ({ baseColor, diamondColor, extraColor }) => {
   return (
-    <div className="section">
+    <div className="section" id='hr2'>
       <Canvas
+      id='onc6'
         style={{
           width: '800px',
           height: '600px',
           background: 'transparent',
-          display: 'block',
+          display: 'flex',
           margin: 'auto',
         }}
         camera={{ position: [0, 2, 5], fov: 50 }}

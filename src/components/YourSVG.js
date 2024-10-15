@@ -3,7 +3,7 @@ import React from "react";
 const YourSvg = ({ baseColor, diamondColor }) => {
     return (
         <div className="YourSVG">
-        <svg width="427" height="418" viewBox="0 0 427 418" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="427" id="y2" height="418" viewBox="0 0 427 418" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
               <filter id="top-bottom-shadow">
                 <feDropShadow dx="0" dy="-3" stdDeviation="3" flood-color="rgba(0, 0, 0, 0.5)" />

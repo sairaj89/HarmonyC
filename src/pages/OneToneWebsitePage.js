@@ -178,7 +178,7 @@ const OneToneWebsitePage = () => {
         />
         <LoadingBar color="#f11946" ref={loadingBarRef} /> {/* Add the loading bar here */}
         <div className="flex-grow relative flex items-center justify-center">
-          <img src={loadingIcon} alt="Loading..." style={{ width: '265px', height: '265px', marginLeft: '220px' }} />
+          <img src={loadingIcon} id='imgon1' alt="Loading..."/>
         </div>
       </div>
     );
@@ -243,6 +243,7 @@ const OneToneWebsitePage = () => {
           </div>
           <div
             className="svg-center"
+            id='ot2'
             style={{
               position: 'relative',
               width: '100%',
@@ -255,6 +256,7 @@ const OneToneWebsitePage = () => {
             <img
               src={require('../images/keanu.png')}
               alt="Background"
+              id='ot4'
               style={{
                 position: 'absolute',
                 zIndex: '1',
@@ -272,6 +274,7 @@ const OneToneWebsitePage = () => {
           </div>
           <div
             className="svg-center"
+            id='ot5'
             style={{
               width: '100%',
               display: 'flex',
@@ -284,6 +287,7 @@ const OneToneWebsitePage = () => {
           </div>
           <div
             className="svg-center"
+            id='ot7'
             style={{
               width: '100%',
               display: 'flex',
@@ -307,7 +311,7 @@ const OneToneWebsitePage = () => {
               zIndex: 0,
             }}
           ></div>
-          <div className="flex w-[825px] h-[425px] relative z-10 custom-shadow" style={{ borderRadius: '25px' }}>
+          <div className="flex w-[825px] h-[425px] relative z-10 custom-shadow" id='ot9' style={{ borderRadius: '25px' }}>
             <div
               className="w-1/2 h-full flex items-center justify-center relative color-container"
               style={{
@@ -333,7 +337,7 @@ const OneToneWebsitePage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='ot10'
                     style={{ color: isColorDark(baseColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setBasePickerVisible(!isBasePickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -341,7 +345,7 @@ const OneToneWebsitePage = () => {
                   >
                     {baseColor}
                   </button>
-                  <p className="text-1xl font-semibold" style={{ color: isColorDark(baseColor) ? 'white' : 'black' }}>{baseColorName}</p>
+                  <p className="text-1xl font-semibold" id='ot13' style={{ color: isColorDark(baseColor) ? 'white' : 'black' }}>{baseColorName}</p>
                   {isBasePickerVisible && (
                     <div ref={basePickerRef} style={{ position: 'absolute', top: '30%', left: 'calc(50% + 85px)', transform: 'translate(0, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                       <SketchPicker
@@ -385,7 +389,7 @@ const OneToneWebsitePage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='ot11'
                     style={{ color: isColorDark(diamondColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setDiamondPickerVisible(!isDiamondPickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -393,7 +397,7 @@ const OneToneWebsitePage = () => {
                   >
                     {diamondColor}
                   </button>
-                  <p className="text-1xl font-semibold" style={{ color: isColorDark(diamondColor) ? 'white' : 'black' }}>{diamondColorName}</p>
+                  <p className="text-1xl font-semibold" id='ot14' style={{ color: isColorDark(diamondColor) ? 'white' : 'black' }}>{diamondColorName}</p>
                   {isDiamondPickerVisible && (
                     <div ref={diamondPickerRef} style={{ position: 'absolute', top: '30%', left: 'calc(50% + 85px)', transform: 'translate(0, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                       <SketchPicker
@@ -439,7 +443,7 @@ const OneToneWebsitePage = () => {
                     />
                   </div>
                   <button
-                    className="text-2xl font-bold vertical-spacing cursor-pointer"
+                    className="text-2xl font-bold vertical-spacing cursor-pointer" id='ot12'
                     style={{ color: isColorDark(harColor) ? 'white' : 'black', textTransform: 'uppercase', backgroundColor: 'transparent', border: 'none', borderRadius: '8px', padding: '4px 8px' }}
                     onClick={() => setHarPickerVisible(!isHarPickerVisible)}
                     onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)'}
@@ -447,7 +451,7 @@ const OneToneWebsitePage = () => {
                   >
                     {harColor}
                   </button>
-                  <p className="text-1xl font-semibold" style={{ color: isColorDark(harColor) ? 'white' : 'black' }}>{harColorName}</p>
+                  <p className="text-1xl font-semibold" id='ot15' style={{ color: isColorDark(harColor) ? 'white' : 'black' }}>{harColorName}</p>
                   {isHarPickerVisible && (
                     <div ref={harPickerRef} style={{ position: 'absolute', top: '30%', left: 'calc(50% + 85px)', transform: 'translate(0, -50%)', zIndex: '10', background: '#fff', padding: '10px', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                       <SketchPicker

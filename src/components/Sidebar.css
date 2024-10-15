@@ -13,6 +13,8 @@
   overflow-y: auto;
 }
 
+
+
 .sidebar * {
   color: #d1d5db !important;
 }
@@ -87,6 +89,7 @@
 .sidebar {
   scrollbar-width: thin;
   scrollbar-color: #6c7d84 #07252d;
+  width:16rem;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -142,68 +145,246 @@
   cursor: pointer;
 }
 
-/* Position hamburger icon to the right when sidebar is open */
-.hamburger-icon-open {
-  left: 13rem;
-}
 
-/* Mobile-specific styles */
-@media (max-width: 768px) {
-  /* Sidebar for mobile view */
+@media (max-width: 992px) {
   .sidebar {
-    width: 75%;
+    width: 14rem; /* Rem is fine, or use width: 80%; for fluidity */
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
-    display: none;
+    display: flex;
+    flex: 1 1 auto;
+  }
+
+  .sidebar-locked{
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #bd1{
+    display: flex;
+  }
+
+  .hamburger-icon-open {
+    left: 11.5rem; /* Keep in rem for consistency */
+    width: 1.25rem; /* Use rem for scalable width */
   }
 
   .sidebar.show {
-    display: block;
+    display: flex;
     transform: translateX(0);
+    flex: 1 1 auto;
   }
 
   .hamburger-icon {
-    display: block; /* Show on small screens */
+    display: flex; 
   }
 
   .close-icon {
-    display: block;
+    display: flex;
     position: absolute;
     top: 1rem;
     right: 1rem;
-    font-size: 2rem;
+    font-size: 2rem; /* Keep rem */
     color: #d1d5db;
     cursor: pointer;
   }
 
   .logo-adjust {
-    margin-left: 1rem;
+    margin-left: 1rem; /* Rem is good, or use % for fluidity */
   }
 
   .sidebar-header img {
-    margin-right: auto;
+    margin-right: auto; /* Auto ensures dynamic spacing */
   }
 
   .sidebar-eye-icon {
     display: none;
   }
 
-  .center-container {
-    margin-left: 0;
-  }
 
-  .svg-center {
-    margin-left: 0;
-  }
-  .sidebar-locked .svg-center {
-    margin-left: 0px;  /* Reset the margin for smaller screens */
-    width: 100%;       /* Ensure the sections take up the full width */
-  }
-
-  .sidebar-locked .center-container {
-    margin-left: 0px;
-    
-  }
+.sidebar-locked .svg-center {
+  display: flex;
+  margin-left: 0%; 
+  width: 100vw;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
 }
 
- 
+.sidebar-locked .center-container{
+  display: flex;
+  margin-left: 0%;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  margin-top: 0%;
+}
+}
+
+
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 14rem; /* Rem is fine, or use width: 80%; for fluidity */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex: 1 1 auto;
+  }
+
+  .sidebar-locked{
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #bd1{
+    display: flex;
+  }
+
+  .hamburger-icon-open {
+    left: 11.5rem; /* Keep in rem for consistency */
+    width: 1.25rem; /* Use rem for scalable width */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .sidebar.show {
+    display: flex;
+    transform: translateX(0);
+    flex: 1 1 auto;
+  }
+
+  .hamburger-icon {
+    display: flex; 
+  }
+
+  .close-icon {
+    display: flex;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem; /* Keep rem */
+    color: #d1d5db;
+    cursor: pointer;
+  }
+
+  .logo-adjust {
+    margin-left: 1rem; /* Rem is good, or use % for fluidity */
+  }
+
+  .sidebar-header img {
+    margin-right: auto; /* Auto ensures dynamic spacing */
+  }
+
+  .sidebar-header{
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .sidebar-eye-icon {
+    display: none;
+  }
+
+
+.sidebar-locked .svg-center {
+  display: flex;
+  margin-left: 0%; 
+  width: 100vw;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-locked .center-container{
+  display: flex;
+  margin-left: 0%;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  margin-top: 0%;
+}
+}
+
+
+  
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 14rem; /* Rem is fine, or use width: 80%; for fluidity */
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex: 1 1 auto;
+  }
+
+  .sidebar-locked{
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #bd1{
+    display: flex;
+  }
+
+  .hamburger-icon-open {
+    left: 11.5rem; /* Keep in rem for consistency */
+    width: 1.25rem; /* Use rem for scalable width */
+  }
+
+  .sidebar.show {
+    display: flex;
+    transform: translateX(0);
+    flex: 1 1 auto;
+  }
+
+  .hamburger-icon {
+    display: flex; 
+  }
+
+  .close-icon {
+    display: flex;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem; /* Keep rem */
+    color: #d1d5db;
+    cursor: pointer;
+  }
+
+  .logo-adjust {
+    margin-left: 1rem; /* Rem is good, or use % for fluidity */
+  }
+
+  .sidebar-header img {
+    margin-right: auto; /* Auto ensures dynamic spacing */
+  }
+
+  .sidebar-eye-icon {
+    display: none;
+  }
+
+
+.sidebar-locked .svg-center {
+  display: flex;
+  margin-left: 0%; 
+  width: 100vw;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-locked .center-container{
+  display: flex;
+  margin-left: 0%;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  margin-top: 0%;
+  overflow: auto;
+}
+}
+

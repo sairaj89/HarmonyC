@@ -48,13 +48,14 @@ const Model = ({ baseColor, diamondColor, harColor, monyColor }) => {
 
 const Harmony3DText = ({ baseColor, diamondColor, harColor, monyColor }) => {
   return (
-    <div className="section">
+    <div className="section" id='hd1'>
       <Canvas
+      id='onc4'
         style={{
           width: '800px',
           height: '600px',
           background: 'transparent',
-          display: 'block',
+          display: 'flex',
           margin: 'auto',
         }}
         camera={{ position: [0, 2, 5], fov: 50 }}

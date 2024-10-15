@@ -85,7 +85,7 @@ const NavbarOneColor = ({
   return (
     <header className="flex items-center h-16 px-4 shadow fixed top-0 w-full z-20" style={{ backgroundColor: '#07252d' }}>
       <div className="flex-grow"></div>
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-4" id='nv1'>
         <ColorSelector
           color={loading ? '#FFFFFF' : baseColor}
           onChange={(color) => handleColorChange(0, color)}
@@ -115,8 +115,8 @@ const NavbarOneColor = ({
             pickerRef={diamondPickerRef}
           />
         ))}
-        <div className="border-l border-gray-300 h-8 mx-4"></div>
-        <button onClick={onBack} className={`back-button ${isBackButtonDisabled ? 'opacity-50 cursor-not-allowed' : ''}`} disabled={isBackButtonDisabled}>
+        <div className="border-l border-gray-300 h-8 mx-4" id='br1'></div>
+        <button onClick={onBack} className={`back-button ${isBackButtonDisabled ? 'opacity-50 cursor-not-allowed' : ''}`} id='b1' disabled={isBackButtonDisabled}>
           <ArrowLeftIcon className="h-4 w-4" />
         </button>
         <button onClick={onGenerate} className="ml-4 generate-button">
@@ -157,9 +157,9 @@ const ColorSelector = ({
   };
 
   return (
-    <div className="relative">
+    <div className="relative nb1">
       <button
-        className={`w-8 h-8 rounded-full border-0 cursor-pointer ${isLocked ? 'bg-opacity-50' : ''} color-button ${isSelected ? 'selected' : ''}`}
+        className={`w-8 h-8 rounded-full border-0 cursor-pointer ${isLocked ? 'bg-opacity-50' : ''} color-button ${isSelected ? 'selected' : ''}`} id='cl1'
         style={{ backgroundColor: color }}
         onClick={onToggle}
       >
@@ -170,7 +170,7 @@ const ColorSelector = ({
         )}
       </button>
       {isOpen && (
-        <div ref={pickerRef} className="absolute z-10 mt-2 bg-white p-3 rounded shadow-md w-48 border border-gray-300 menu-button">
+        <div ref={pickerRef} className="absolute z-10 mt-2 bg-white p-3 rounded shadow-md w-48 border border-gray-300 menu-button" id='dd1'>
           <button
             className="flex items-center mb-2 text-gray-700 hover:bg-gray-100 p-2 rounded"
             onClick={() => {
@@ -197,7 +197,7 @@ const ColorSelector = ({
             <span>Copy code</span>
           </button>
           <hr className="border-t border-gray-300 my-2" />
-          <div className="relative">
+          <div className="relative nb1">
             <input
               type="color"
               value={color}

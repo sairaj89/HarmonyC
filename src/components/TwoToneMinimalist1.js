@@ -5,7 +5,7 @@ import man1Image from '../images/man1.png';
 
 const TwoToneMinimalistOne = ({ baseColor, diamondColor, harColor, monyColor }) => {
   return (
-<svg className = "svg-drop-shadow"  width="700" height="517" viewBox="0 0 823 517" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg className = "svg-drop-shadow" id='tt2' width="700" height="517" viewBox="0 0 823 517" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="823" height="517" fill={monyColor} fill-opacity="0.5"/>
 <rect width="412" height="517" fill={baseColor}/>
 <rect x="412" width="411" height="517" fill={baseColor} />

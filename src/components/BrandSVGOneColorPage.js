@@ -2,8 +2,8 @@ import React from "react";
 
 const BrandSVG = ({ baseColor, diamondColor }) => {
     return (
-        <div className="BrandSVG">
-     <svg width="800" height="600" viewBox="0 0 6289 3459" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div className="BrandSVG1">
+     <svg width="800" id="bran1" height="600" viewBox="0 0 6289 3459" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="6289" height="3459" rx="128" fill={baseColor}/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M3829.16 1996.66V1463.34C3829.16 1403.51 3784.7 1355 3729.85 1355H3053.82C2998.97 1355 2954.51 1403.51 2954.51 1463.34V1996.66C2954.51 2056.5 2998.97 2105 3053.82 2105H3729.85C3784.7 2105 3829.16 2056.5 3829.16 1996.66Z" fill={diamondColor}/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M2954.51 488.346V1096.66C2954.51 1156.5 2998.97 1205 3053.82 1205H3729.85C3784.7 1205 3829.16 1156.5 3829.16 1096.66V488.346C3829.16 428.505 3784.7 380 3729.85 380H3053.82C2998.97 380 2954.51 428.505 2954.51 488.346Z" fill={diamondColor}/>
